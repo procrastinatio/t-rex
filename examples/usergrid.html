@@ -52,7 +52,7 @@
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const layername = urlParams.get('layer') || 'g1k18'
-
+    const debug = urlParams.get('debug') || false;
 
     var matrixIds = [];
     for (var i = 0; i < RESOLUTIONS.length; i++) {
@@ -97,6 +97,14 @@
       style: style
     });
 
+
+    const tileDebug = new ol.layer.Tile({
+      source: new ol.source.TileDebug({
+        projection: vtLayer.getSource().getProjection(),
+        tileGrid: vtLayer.getSource().getTileGrid(),
+      })
+    });
+
     /* View and vector projection have to match, no reprojection like for raster layers */
     var map = new ol.Map({
       layers: [wmtsLayer, vtLayer],
@@ -107,6 +115,10 @@
         resolution: 500
       })
     });
+
+    if (debug) {
+      map.addLayer(tileDebug);
+    }
   </script>
 </body>
 
