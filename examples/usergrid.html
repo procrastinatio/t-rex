@@ -53,6 +53,7 @@
     const urlParams = new URLSearchParams(queryString);
     const layername = urlParams.get('layer') || 'g1k18'
     const debug = urlParams.get('debug') || false;
+    const servername = urlParams.get('server') || location.origin;
 
     var matrixIds = [];
     for (var i = 0; i < RESOLUTIONS.length; i++) {
@@ -91,7 +92,7 @@
         format: new ol.format.MVT(),
         tileGrid: tileGrid,
         tilePixelRatio: 16,
-        url: 'http://localhost:6767/' + layername + '/{z}/{x}/{y}.pbf',
+        url: servername + '/' + layername + '/{z}/{x}/{y}.pbf',
         projection: projection
       }),
       style: style
