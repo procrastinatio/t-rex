@@ -39,7 +39,7 @@ const RESOLUTIONS = [
   const layername = urlParams.get('layer') || 'g1k18'
   const debug = urlParams.get('debug') || false;
 
-  const servername = urlParams.get('server') || location.href;
+  const servername = urlParams.get('server') || location.origin;
 
  console.log(servername);
 
@@ -80,7 +80,7 @@ const RESOLUTIONS = [
       format: new MVT(),
       tileGrid: tileGrid,
       tilePixelRatio: 16,
-      url: servername + layername + '/{z}/{x}/{y}.pbf',
+      url: servername + '/' + layername + '/{z}/{x}/{y}.pbf',
       projection: projection
     }),
     style: style

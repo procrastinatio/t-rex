@@ -16,3 +16,7 @@ To generate a build ready for production:
     npm run build
 
 Then deploy the contents of the `dist` directory to your server.  You can also run `npm run serve` to serve the results of the `dist` directory for preview.
+
+Alternatively, if you `app`is not at the `root`, you may may specify the `path` with:
+
+    ./node_modules/.bin/vite build --base=/static/
