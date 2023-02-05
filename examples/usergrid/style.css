@@ -1,0 +1,14 @@
+@import "node_modules/ol/ol.css";
+
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: sans, "Helvetica";
+}
+#map {
+  position: absolute;
+  top: 3em;
+  bottom: 0;
+  width: 100%;
+  background: #f8f4f0;
+}
